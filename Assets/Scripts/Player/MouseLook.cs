@@ -10,14 +10,28 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
-    
+
+    public InventoryUI inventoryUI;
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;        
     }
 
     void Update()
-    {
+    {        
+        if (inventoryUI.inventoryUI.activeSelf == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            return;
+        }
+        else 
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+            
+
+        
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FirstPersonPlayer : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class FirstPersonPlayer : MonoBehaviour
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        
+
+        
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
