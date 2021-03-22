@@ -28,7 +28,7 @@ public class PlayerRaycasting : MonoBehaviour
             if (item.tag == "Item")
             {
                 interactibleName.text = item.name;
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKey(KeyCode.E))
                 {
                     item.GetComponent<ItemPickup>().PickUp();
                 }
@@ -38,20 +38,29 @@ public class PlayerRaycasting : MonoBehaviour
                 interactibleName.text = item.name;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    item.GetComponent<ItemReques>().RequestItem();
-                }                
+                    if (item.GetComponent<Interactive>() == true)
+                    {
+                        item.GetComponent<Interactive>().Interactact();
+                    }
+
+                }
+
             }
             else
             {
                 interactibleName.text = "";
             }
+
+
         }
         else
         {
             interactibleName.text = "";
         }
+
     }
-
-
-
 }
+
+
+
+

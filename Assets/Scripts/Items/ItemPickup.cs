@@ -9,7 +9,7 @@ public class ItemPickup : MonoBehaviour
 	// Pick up the item
 	public void PickUp ()
 	{
-		Debug.Log("Picking up " + item.name);
+		Debug.Log("Подобрал " + item.name);
 		bool wasPickedUp = Inventory.instance.Add(item);	// Add to inventory
 
 		// If successfully picked up
