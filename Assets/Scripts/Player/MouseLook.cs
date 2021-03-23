@@ -11,27 +11,32 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
-    public InventoryUI inventoryUI;
+    public Menu Menu;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
-    {        
-        if (inventoryUI.inventoryUI.activeSelf == true)
+    {
+        if (Menu.inventoryUI.activeSelf == true)
         {
             Cursor.lockState = CursorLockMode.None;
             return;
         }
-        else 
+        else if (Menu.menuUI.activeSelf == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            return;
+        }
+        else
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-            
 
-        
+
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

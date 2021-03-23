@@ -12,15 +12,17 @@ public class TerrainGenerator : MonoBehaviour
     public float offsetX = 100f;
     public float offsetY = 100f;
 
+    public bool isGenerate = false;
+
     void Start()
     {
-        offsetX = Random.Range(0f, 9999f);    
-        offsetY = Random.Range(0f, 9999f);    
+        offsetX = Random.Range(0f, 9999f);
+        offsetY = Random.Range(0f, 9999f);
     }
     void Update()
     {
         Terrain terrain = GetComponent<Terrain>();
-        terrain.terrainData = GenerateTerrain(terrain.terrainData);
+        if (isGenerate) terrain.terrainData = GenerateTerrain(terrain.terrainData);
 
         //offsetX += Time.deltaTime * 2f;
         //offsetY += Time.deltaTime * 2f;
