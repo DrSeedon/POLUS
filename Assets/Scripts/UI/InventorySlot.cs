@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour {
 
-	public Image icon;			// Reference to the Icon image
-	public Button removeButton;	// Reference to the remove button
+	public Image icon;			
+	public Button removeButton;
 
-	Item item;  // Current item in the slot
+	ItemInfo item;
 
-	// Add item to the slot
-	public void AddItem (Item newItem)
+	Stats player;
+
+
+	private void Start()
+    {
+		player = transform.GetComponentInParent<Stats>();
+    }
+
+    // Add item to the slot
+    public void AddItem (ItemInfo newItem)
 	{
 		item = newItem;
 
@@ -41,7 +49,7 @@ public class InventorySlot : MonoBehaviour {
 	{
 		if (item != null)
 		{
-			item.Use();
+			item.Use(player.gameObject);
 		}
 	}
 

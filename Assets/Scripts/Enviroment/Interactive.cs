@@ -7,12 +7,16 @@ public class Interactive : MonoBehaviour
 {
     //Request
     Inventory inventory;
-    public Item requestedItem;
+    public ItemInfo requestedItem;
     public bool dontRequestItem = false;
     public bool requestManyItem = false;
     public int requestedItems = 1;
     public bool removeItemAfterUse = false;
 
+    public bool isGiveItem = false;
+    public ItemInfo givenItem;
+
+    GameObject player;
 
     public Mechanism mech;
 
@@ -28,8 +32,9 @@ public class Interactive : MonoBehaviour
         inventory = Inventory.instance;
     }
 
-    public void Interactact()
+    public void Interactact(GameObject p)
     {
+        player = p;
         if (dontRequestItem)
         {
             Trigger();
@@ -52,7 +57,7 @@ public class Interactive : MonoBehaviour
                         {
                             inventory.Add(requestedItem);
                         }
-                        Debug.Log("Недостаточно " + (requestedItems - i) + " предмета " + requestedItem.name);
+                        Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + (requestedItems - i) + " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + requestedItem.name);
                         return;
                     }
                 }
@@ -60,7 +65,7 @@ public class Interactive : MonoBehaviour
             }
             else
             {
-                Debug.Log("Недостаточно " + requestedItems + " предмета " + requestedItem.name);
+                Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + requestedItems + " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + requestedItem.name);
             }
 
         }
@@ -73,7 +78,7 @@ public class Interactive : MonoBehaviour
             }
             else
             {
-                Debug.Log("Недостаточно предмета " + requestedItem.name);
+                Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + requestedItem.name);
             }
         }
 
@@ -84,15 +89,19 @@ public class Interactive : MonoBehaviour
     {
         if (removeItemAfterUse)
         {
-            Debug.Log(requestedItem.name + " удален");
+            Debug.Log(requestedItem.name + " пїЅпїЅпїЅпїЅпїЅпїЅ");
             inventory.Remove(requestedItem);
         }
     }
 
     void Trigger()
     {
+        if (isGiveItem)
+        {
+            inventory.Add(givenItem);
+        }
         mech.GetComponent<Mechanism>().enabled = true;
-        mech.Trigger();       
+        mech.Trigger(player);        
     }
 
 }

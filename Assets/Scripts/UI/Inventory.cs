@@ -29,11 +29,11 @@ public class Inventory : MonoBehaviour {
 	public int space = 20;	// Amount of slots in inventory
 
 	// Current list of items in inventory
-	public List<Item> items = new List<Item>();
+	public List<ItemInfo> items = new List<ItemInfo>();
 
 	// Add a new item. If there is enough room we
 	// return true. Else we return false.
-	public bool Add (Item item)
+	public bool Add (ItemInfo item)
 	{
 		// Don't do anything if it's a default item
 		if (!item.isDefaultItem)
@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour {
 			// Check if out of space
 			if (items.Count >= space)
 			{
-				Debug.Log("Нехватает места");
+				Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 				return false;
 			}
 
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour {
 	}
 
 	// Remove an item
-	public void Remove (Item item)
+	public void Remove (ItemInfo item)
 	{
 		items.Remove(item);		// Remove item from list
 
