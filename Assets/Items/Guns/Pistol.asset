@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Pistol
   icon: {fileID: 0}
   isDefaultItem: 0
-  damage: 25
+  damage: 1

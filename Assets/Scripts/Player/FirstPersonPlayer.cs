@@ -5,9 +5,15 @@ using UnityEngine.EventSystems;
 using Photon.Pun;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class FirstPersonPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
+    [SerializeField] Image healthbarImage;
+    [SerializeField] GameObject UI;
+
+    [SerializeField] Item[] items;
+
     public CharacterController controller;
 
     public float speed = 12f;
@@ -15,7 +21,6 @@ public class FirstPersonPlayer : MonoBehaviourPunCallbacks, IDamageable
     public float jumpHeight = 3f;
     public float pushPower = 2f;
 
-    [SerializeField] Item[] items;
 
     int itemIndex;
     int previousItemIndex = -1;
@@ -46,6 +51,10 @@ public class FirstPersonPlayer : MonoBehaviourPunCallbacks, IDamageable
         if (PV.IsMine)
         {
             EquipItem(0);
+        }
+        else
+        {
+            Destroy(UI);
         }
     }
 
@@ -186,6 +195,8 @@ public class FirstPersonPlayer : MonoBehaviourPunCallbacks, IDamageable
             return;
 
         currentHealth -= damage;
+
+        healthbarImage.fillAmount = currentHealth / maxHealth;
 
         if (currentHealth <= 0)
         {

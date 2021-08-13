@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac90a348c58454695edd4a4be58523, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a9a7865fa75b0547a691b3c589f3c31, type: 3}
   m_Name: Green Key
   m_EditorClassIdentifier: 
-  name: Green Key
-  icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
+  itemName: Green Key
+  icon: {fileID: 0}
   isDefaultItem: 0
