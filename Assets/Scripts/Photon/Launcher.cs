@@ -46,7 +46,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
         if (string.IsNullOrEmpty(roomNameInputField.text))
-            return;
+        {
+            roomNameInputField.text = "Room " + Random.Range(0, 10000).ToString("0000");
+        }
+
         PhotonNetwork.CreateRoom(roomNameInputField.text);
         MenuManager.Instance.OpenMenu("loading");
     }

@@ -144,11 +144,11 @@ public class FirstPersonPlayer : MonoBehaviourPunCallbacks, IDamageable
 
         itemIndex = _index;
 
-        items[itemIndex].itemGameObject.SetActive(true);
+        items[itemIndex].ActiveHand(true);
 
         if (previousItemIndex != -1)
         {
-            items[previousItemIndex].itemGameObject.SetActive(false);
+            items[previousItemIndex].ActiveHand(false);
         }
 
         previousItemIndex = itemIndex;

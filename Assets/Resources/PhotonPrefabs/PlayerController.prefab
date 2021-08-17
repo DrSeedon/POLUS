@@ -1650,13 +1650,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3109646093063723355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2a22261e48c32344a9fb90324341d90, type: 3}
+  m_Script: {fileID: 11500000, guid: b111b277e2103a24d82388b56185e557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: d06a529d7c7b8a841bd5c62fec0885f1, type: 2}
   itemGameObject: {fileID: 3779270448256981264}
-  bulletImpactPrefab: {fileID: 4191945381919819687, guid: 7652f84ac08e83b459606880eeba7afd, type: 3}
+  isActive: 0
   cam: {fileID: 4942935189546762607}
+  bulletImpactPrefab: {fileID: 4191945381919819687, guid: 7652f84ac08e83b459606880eeba7afd, type: 3}
+  fireRate: 0.1
+  IsMultyShotGun: 1
 --- !u!114 &4743745348852492468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1970,7 +1973,7 @@ GameObject:
   - component: {fileID: 4942935189188905540}
   - component: {fileID: 4942935189188905594}
   - component: {fileID: 4942935189188905595}
-  - component: {fileID: 4781889794024801184}
+  - component: {fileID: 7349030557248817587}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -2041,7 +2044,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4781889794024801184
+--- !u!64 &7349030557248817587
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2049,10 +2052,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4942935189188905541}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4942935189546762603
@@ -2306,7 +2309,7 @@ MonoBehaviour:
   UI: {fileID: 718322030}
   items:
   - {fileID: 8511243604397126566}
-  - {fileID: 6828270636118856151}
+  - {fileID: 5562076921184626906}
   controller: {fileID: 4942935190735492912}
   speed: 12
   gravity: -25
@@ -3377,7 +3380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6147369905972510810}
-  - component: {fileID: 6828270636118856151}
+  - component: {fileID: 5562076921184626906}
   - component: {fileID: 5971429660009285378}
   m_Layer: 0
   m_Name: Pistol
@@ -3401,7 +3404,7 @@ Transform:
   m_Father: {fileID: 6715388246789208319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6828270636118856151
+--- !u!114 &5562076921184626906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3410,13 +3413,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8425297705183145952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2a22261e48c32344a9fb90324341d90, type: 3}
+  m_Script: {fileID: 11500000, guid: b111b277e2103a24d82388b56185e557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: 04a312441ce0f2947b95f8f542424fc6, type: 2}
   itemGameObject: {fileID: 3963635041450722388}
-  bulletImpactPrefab: {fileID: 4191945381919819687, guid: 7652f84ac08e83b459606880eeba7afd, type: 3}
+  isActive: 0
   cam: {fileID: 4942935189546762607}
+  bulletImpactPrefab: {fileID: 4191945381919819687, guid: 7652f84ac08e83b459606880eeba7afd, type: 3}
+  fireRate: 0.3
+  IsMultyShotGun: 0
 --- !u!114 &5971429660009285378
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
-public class MeshGenerator : MonoBehaviour
+public class MeshGenerator2 : MonoBehaviour
 {
     Mesh mesh;
 

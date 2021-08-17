@@ -79,6 +79,7 @@ Material:
     - _Color: {r: 0.4292453, g: 0.7559531, b: 1, a: 1}
     - _Color0: {r: 0, g: 0.6749488, b: 0.8088235, a: 0}
     - _Color1: {r: 0, g: 0.048731543, b: 0.22794023, a: 0}
-    - _DeepColor: {r: 0.2511125, g: 0.7187613, b: 0.9339623, a: 1}
+    - _DeepColor: {r: 0.2901961, g: 0.93725497, b: 1, a: 1}
     - _ShalowColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

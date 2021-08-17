@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 36bb35420f38b9949acb66e1860891d7
   - enabled: 1
-    path: Assets/SimpleLowPolyNature/Scenes/DemoDay.unity
-    guid: 304a5748b784bc241be3c08d67013b21
+    path: Assets/SimpleLowPolyNature/Scenes/DemoDay 1.unity
+    guid: b415e559842cc604db7337dcc86960f7
   m_configObjects: {}
