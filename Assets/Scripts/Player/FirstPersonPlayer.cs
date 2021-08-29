@@ -44,6 +44,7 @@ public class FirstPersonPlayer : MonoBehaviourPunCallbacks, IDamageable
         PV = GetComponent<PhotonView>();
 
         playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+
     }
 
     void Start()

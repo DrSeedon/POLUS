@@ -5,6 +5,7 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -25,7 +26,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-
         Debug.Log("Connecting to Master");
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -105,6 +105,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         MenuManager.Instance.OpenMenu("title");
+        SceneManager.LoadScene(0);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -125,5 +126,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
     }
+
+
 
 }

@@ -8,8 +8,12 @@ public class Gun : Item
     [SerializeField] Camera cam;
 
     public GameObject bulletImpactPrefab;
+    public Stats player;
+
     PhotonView PV;
 
+    public float impactForce = 30f;
+    public float range = 100f;
     public float fireRate = 0.3f;
     public bool IsMultyShotGun = false;
 
@@ -34,6 +38,13 @@ public class Gun : Item
     public override void Use()
     {
         Shoot();
+
+        if (player.ammo > 0)
+        {
+            Shoot();
+            player.ammo--;
+            player.UpdateStats();
+        }
     }
 
 
@@ -41,7 +52,7 @@ public class Gun : Item
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         ray.origin = cam.transform.position;
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
             GameObject Target = hit.collider.gameObject;
             if (Target.GetComponentInParent<FirstPersonPlayer>())
@@ -50,6 +61,10 @@ public class Gun : Item
                 {
                     return;
                 }
+            }
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
             Target.GetComponentInParent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
             Target.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
@@ -66,6 +81,10 @@ public class Gun : Item
             GameObject bulletImpactObj = Instantiate(bulletImpactPrefab, hitPosition + hitNormal * 0.001f, Quaternion.LookRotation(hitNormal, Vector3.up) * bulletImpactPrefab.transform.rotation);
             Destroy(bulletImpactObj, 10f);
             bulletImpactObj.transform.SetParent(colliders[0].transform);
+
+            GameObject obj = Instantiate(bulletImpactPrefab, hitPosition + hitNormal * 0.001f, Quaternion.LookRotation(hitNormal, Vector3.up) * bulletImpactPrefab.transform.rotation);
+            Destroy(obj, 0.2f);
+
         }
     }
 }

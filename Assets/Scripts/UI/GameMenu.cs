@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
 
     public GameObject inventoryUI;  // The entire UI
     public GameObject menuUI;
-    public GameObject optionsUI;
     public GameObject FPSDisplay;
-
-    public Button showFPSButton;
-
-    public Color buttonActivateColor;
-    public Color buttonDeactivateColor;
 
     public bool isInventoryActive;
     public bool isMenuActive;
@@ -46,7 +42,7 @@ public class GameMenu : MonoBehaviour
             menuUI.SetActive(true);
         }
 
-        if (Input.GetButtonDown("Inventory")) //Button E
+        if (Input.GetButtonDown("Inventory"))
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
@@ -55,23 +51,15 @@ public class GameMenu : MonoBehaviour
         isInventoryActive = inventoryUI.activeSelf;
     }
 
-    public void ResumeButton()
-    {
-        menuUI.SetActive(false);
-    }
-
-    public void ExitButton()
-    {
-        Application.Quit();
-    }
-
     public void ShowFPSButton()
     {
-        FPSDisplay.SetActive(!FPSDisplay.activeSelf);
-        if (FPSDisplay.activeSelf)
-            showFPSButton.GetComponent<Image>().color = buttonActivateColor;        
-        else
-            showFPSButton.GetComponent<Image>().color = buttonDeactivateColor; 
-        
+        FPSDisplay.SetActive(Main.IsFPSShow);
     }
+
+    public void Leave()
+    {
+        SceneManager.LoadScene(0);
+        PhotonNetwork.LeaveRoom();
+    }
+
 }

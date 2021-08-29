@@ -25,12 +25,7 @@ public class GunController : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1f / fireRate;
 
-            if (player.GetComponent<Stats>().ammo > 0)
-            {
-                Shoot();
-                player.GetComponent<Stats>().ammo--;
-                player.GetComponent<Stats>().UpdateStats();
-            }
+
         }
     }
 
