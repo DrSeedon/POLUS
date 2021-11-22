@@ -148,10 +148,10 @@ public class TerrainChunk
 
     public void UpdateCollisionMesh()
     {
+        Debug.Log("update");
         if (!hasSetCollider)
         {
-
-            float sqrDstFromViewerToEdge = bounds.SqrDistance(viewerPosition) - 100;
+            float sqrDstFromViewerToEdge = bounds.SqrDistance(viewerPosition);
 
             if (sqrDstFromViewerToEdge < detailLevels[colliderLODIndex].sqrVisibleDstThreshold)
             {
